@@ -1,0 +1,74 @@
+package tugas_07_05;
+
+import java.util.Scanner;
+
+class BangunRuang{
+    
+    public BangunRuang(int rusuk) {
+        System.out.println("Volume Kubus: " + (rusuk * rusuk * rusuk ) + ("cm"));
+        System.out.println("Luas Permukaan Kubus: " + (6 * rusuk * rusuk)+ ("cm"));
+    }
+
+    
+    public BangunRuang(double panjang, double lebar, double tinggi) {
+        System.out.println("Volume Balok: " + (panjang * lebar * tinggi) + ("cm"));
+        System.out.println("Luas Permukaan Balok: " + (2 * (panjang * lebar + panjang * tinggi + lebar * tinggi))+ ("cm"));
+    }
+
+    
+    public BangunRuang(double jari, double tinggi) {
+        System.out.println("Volume Silinder: " + (Math.PI * jari * jari * tinggi) + ("cm"));
+        System.out.println("Luas Permukaan Silinder: " + (2 * Math.PI * jari * (jari + tinggi))+ ("cm"));
+    }
+
+    
+    public BangunRuang(double jari) {
+        System.out.println("Volume Bola: " + ((4.0 / 3.0) * Math.PI * jari * jari * jari)+ ("cm"));
+        System.out.println("Luas Permukaan Bola: " + (4 * Math.PI * jari * jari) + ("cm"));
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Pilih Bangun Ruang:");
+        System.out.println("1. Kubus");
+        System.out.println("2. Balok");
+        System.out.println("3. Silinder");
+        System.out.println("4. Bola");
+        System.out.print("Masukkan pilihan (1/2/3/4): ");
+        int pilihan = scanner.nextInt();
+
+        switch (pilihan) {
+            case 1:
+                System.out.print("Masukkan panjang rusuk kubus(cm): ");
+                int rusukKubus = scanner.nextInt();
+                new BangunRuang(rusukKubus);
+                break;
+            case 2:
+                System.out.print("Masukkan panjang balok(cm): ");
+                double panjangBalok = scanner.nextDouble();
+                System.out.print("Masukkan lebar balok(cm): ");
+                double lebarBalok = scanner.nextDouble();
+                System.out.print("Masukkan tinggi balok(cm): ");
+                double tinggiBalok = scanner.nextDouble();
+                new BangunRuang(panjangBalok, lebarBalok, tinggiBalok);
+                break;
+            case 3:
+                System.out.print("Masukkan jari-jari silinder(cm): ");
+                double jariSilinder = scanner.nextDouble();
+                System.out.print("Masukkan tinggi silinder(cm): ");
+                double tinggiSilinder = scanner.nextDouble();
+                new BangunRuang(jariSilinder, tinggiSilinder);
+                break;
+            case 4:
+                System.out.print("Masukkan jari-jari bola(cm): ");
+                double jariBola = scanner.nextDouble();
+                new BangunRuang(jariBola);
+                break;
+            default:
+                System.out.println("Pilihan tidak valid.");
+        }
+
+        scanner.close();
+    }
+}
