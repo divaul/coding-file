@@ -1,0 +1,64 @@
+package tugas_07_05;
+
+import java.util.Scanner;
+
+class Pajak {
+    private String vendor;
+    private String tipe;
+    private double harga;
+
+    public Pajak(String vendor, String tipe, double harga) {
+        this.vendor = vendor;
+        this.tipe = tipe;
+        this.harga = harga;
+    }
+
+    public double SetelahPPN() {
+        double ppn = 0;
+
+        if (harga > 4500000) {
+            ppn = 0.05; 
+        } else if (harga > 4200000) {
+            ppn = 0.02; 
+        } else if (harga > 4000000) {
+            ppn = 0.01; 
+        }
+
+        return harga + (harga * ppn);
+    }
+
+    
+    public String getVendor() {
+        return vendor;
+    }
+
+    public String getTipe() {
+        return tipe;
+    }
+
+    public double getHarga() {
+        return harga;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan nama vendor: ");
+        String vendor = scanner.nextLine();
+
+        System.out.print("Masukkan tipe smartphone: ");
+        String tipe = scanner.nextLine();
+
+        System.out.print("Masukkan harga smartphone: Rp");
+        double harga = scanner.nextDouble();
+
+        Pajak pajak = new Pajak(vendor, tipe, harga);
+        double hargaSetelahPPN = pajak.SetelahPPN();
+
+        System.out.println("Harga setelah ditambah PPN: Rp" + hargaSetelahPPN);
+
+        scanner.close();
+    }
+}
