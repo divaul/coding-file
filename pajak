@@ -41,24 +41,4 @@ class Pajak {
     }
 }
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Masukkan nama vendor: ");
-        String vendor = scanner.nextLine();
-
-        System.out.print("Masukkan tipe smartphone: ");
-        String tipe = scanner.nextLine();
-
-        System.out.print("Masukkan harga smartphone: Rp");
-        double harga = scanner.nextDouble();
-
-        Pajak pajak = new Pajak(vendor, tipe, harga);
-        double hargaSetelahPPN = pajak.SetelahPPN();
-
-        System.out.println("Harga setelah ditambah PPN: Rp" + hargaSetelahPPN);
-
-        scanner.close();
-    }
-}
