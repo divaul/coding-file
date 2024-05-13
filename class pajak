@@ -2,7 +2,7 @@ package tugas_07_05;
 
 import java.util.Scanner;
 
-class Pajak {
+public class Pajak {
     private String vendor;
     private String tipe;
     private double harga;
